@@ -4,6 +4,7 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { siteConfig } from '../content/site-config.ts'
 import { works } from '../content/works.ts'
+import { getDemoVideoConfigErrors } from '../lib/site-config-validation.ts'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const releaseMode = process.argv.includes('--release')
@@ -49,6 +50,14 @@ report(Array.isArray(works) && works.length > 0, 'Catalogue must contain at leas
 unique('slug', works.map((work) => work.slug))
 unique('order', works.map((work) => work.order))
 unique('poster', works.map((work) => work.poster))
+
+for (const message of getDemoVideoConfigErrors(siteConfig)) errors.push(message)
+if (siteConfig.demoVideoUrl) {
+  report(
+    !placeholderPattern.test(siteConfig.demoVideoUrl),
+    'siteConfig.demoVideoUrl contains placeholder text.',
+  )
+}
 
 for (const work of works) {
   const label = `Work “${work.slug}”`
