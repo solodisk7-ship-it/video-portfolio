@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "release": "local-demo",
+  "publishedCommit": "local-demo",
+  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "items": [
+    {
+      "slug": "demo-source",
+      "objectKey": "xionic2-demo-v01.mp4",
+      "sha256": "521f9229219bbe7e063c75fa887e5495167b0e80d2352f658b7704a0682e0c83",
+      "bytes": 1886921,
+      "durationSeconds": 6.037,
+      "resolution": {
+        "width": 432,
+        "height": 768
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    }
+  ]
+}

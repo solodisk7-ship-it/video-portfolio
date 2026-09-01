@@ -1,0 +1,14 @@
+{
+  "lifecycleRules": [
+    {
+      "id": "DeleteRetiredWebVideos",
+      "enabled": true,
+      "filter": {
+        "prefix": "retired/"
+      },
+      "expiration": {
+        "days": "30"
+      }
+    }
+  ]
+}

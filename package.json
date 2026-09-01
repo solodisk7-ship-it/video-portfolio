@@ -1,0 +1,59 @@
+{
+  "name": "video-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.12.0"
+  },
+  "packageManager": "pnpm@10.26.2",
+  "scripts": {
+    "dev": "next dev",
+    "build": "pnpm validate:content && next build && pnpm check:export",
+    "start": "node scripts/serve-static.mjs",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "validate:content": "node scripts/validate-content.mjs",
+    "validate:release": "node scripts/validate-content.mjs --release",
+    "check:export": "node scripts/check-static-export.mjs",
+    "test": "vitest run --configLoader runner",
+    "test:watch": "vitest --configLoader runner",
+    "test:e2e": "playwright test",
+    "quality": "pnpm lint && pnpm typecheck && pnpm validate:content && pnpm test",
+    "release:prepare": "pnpm validate:release && pnpm quality && pnpm build",
+    "deploy:cloudflare": "pnpm release:prepare && wrangler pages deploy out --project-name video-portfolio"
+  },
+  "dependencies": {
+    "geist": "1.7.2",
+    "lucide-react": "^1.16.0",
+    "next": "16.3.0",
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.0",
+    "jsdom": "^27.0.0",
+    "postcss": "^8.5",
+    "tailwindcss": "^4.3.3",
+    "typescript": "5.7.3",
+    "vitest": "^3.2.4",
+    "wrangler": "^4.35.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "unrs-resolver",
+      "workerd"
+    ]
+  }
+}
