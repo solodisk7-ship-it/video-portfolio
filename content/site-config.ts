@@ -5,7 +5,7 @@ export const siteConfig = {
   siteTitle: 'Motion Design & Video Editing',
   description:
     'Independent motion design and video editing portfolio featuring short-form films, social video and title work.',
-  canonicalUrl: 'https://portfolio.example.com',
+  canonicalUrl: 'https://video-portfolio-3s4.pages.dev',
   mediaBaseUrl: '/works',
   videoProtection: {
     watermarkLabel: 'Portfolio',

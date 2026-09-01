@@ -2,7 +2,7 @@
   "CORSRules": [
     {
       "AllowedOrigins": [
-        "https://video-portfolio.pages.dev"
+        "https://video-portfolio-3s4.pages.dev"
       ],
       "AllowedMethods": ["GET", "HEAD"],
       "AllowedHeaders": ["Range"],

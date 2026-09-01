@@ -46,7 +46,7 @@ pnpm exec wrangler pages deploy out --project-name video-portfolio
 Проверьте опубликованный commit:
 
 ```powershell
-curl.exe https://video-portfolio.pages.dev/release.json
+curl.exe https://video-portfolio-3s4.pages.dev/release.json
 ```
 
 Сначала используйте технический адрес `pages.dev`. Собственный домен
