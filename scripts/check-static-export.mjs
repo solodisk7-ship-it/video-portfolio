@@ -37,6 +37,9 @@ try {
   if (/placeholder/i.test(html)) {
     errors.push('Static HTML contains placeholder asset references.')
   }
+  if (files.some((file) => file.toLowerCase().endsWith('.mp4'))) {
+    errors.push('Static export contains a bundled MP4; videos must be served from object storage.')
+  }
 
   for (const file of files.filter((item) => item.endsWith('.webp'))) {
     const info = await stat(file)

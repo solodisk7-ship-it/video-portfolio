@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { siteConfig } from '../../content/site-config'
 
 test('defers MP4 loading, reveals the catalogue and restores the page after close', async ({ page }) => {
   const mp4Requests: string[] = []
@@ -26,8 +27,10 @@ test('defers MP4 loading, reveals the catalogue and restores the page after clos
   await expect(page.locator('video')).toHaveCount(0)
 })
 
-test('serves versioned MP4 with MIME and byte ranges', async ({ request }) => {
-  const response = await request.get('/works/xionic2-demo-v01.mp4', {
+test('serves the remote demo MP4 with MIME and byte ranges', async ({ request }) => {
+  expect(siteConfig.demoVideoUrl).toBeTruthy()
+
+  const response = await request.get(siteConfig.demoVideoUrl!, {
     headers: { Range: 'bytes=0-1023' },
   })
 
