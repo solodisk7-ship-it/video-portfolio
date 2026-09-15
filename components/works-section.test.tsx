@@ -31,7 +31,7 @@ describe('WorksSection', () => {
     expect(video).toHaveAttribute('preload', 'metadata')
     expect(video).toHaveAttribute('controlslist', 'nodownload noremoteplayback')
     expect(video).toHaveAttribute('disablepictureinpicture')
-    expect(screen.getByTestId('video-watermark')).toHaveTextContent('Portfolio')
+    expect(screen.queryByTestId('video-watermark')).not.toBeInTheDocument()
 
     const contextMenu = new MouseEvent('contextmenu', {
       bubbles: true,

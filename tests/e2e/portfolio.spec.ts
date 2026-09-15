@@ -19,6 +19,7 @@ test('defers MP4 loading and restores the page after close', async ({ page }) =>
   await firstCard.click()
   await mediaRequest
   await expect(page.getByRole('dialog')).toBeVisible()
+  await expect(page.getByTestId('video-watermark')).toHaveCount(0)
   await expect(page.getByRole('dialog').getByText('2026')).toHaveCount(0)
   expect(mp4Requests.length).toBeGreaterThan(0)
 

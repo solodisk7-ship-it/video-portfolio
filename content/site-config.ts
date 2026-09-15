@@ -9,9 +9,6 @@ export const siteConfig = {
   mediaBaseUrl:
     'https://storage.yandexcloud.net/portfolio-nonstoplife26-media',
   demoVideoUrl: null as string | null,
-  videoProtection: {
-    watermarkLabel: 'Portfolio',
-  },
   contact: {
     email: 'solo-disk@mail.ru',
     telegram: null as { readonly url: string; readonly label: string } | null,

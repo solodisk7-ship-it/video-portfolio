@@ -9,7 +9,6 @@ import {
 } from 'react'
 import { createPortal } from 'react-dom'
 import { ArrowLeft, ArrowRight, RotateCcw, X } from 'lucide-react'
-import { siteConfig } from '@/content/site-config'
 import type { Work } from '@/content/works'
 import { getVideoUrl, isVideoControlTarget } from '@/lib/portfolio'
 
@@ -180,7 +179,7 @@ export function WorkLightbox({ works, index, onClose, onNavigate }: WorkLightbox
         <div className="flex flex-1 flex-col justify-center py-6 md:py-8">
           <div className="flex min-h-0 items-center justify-center">
             {videoUrl && !mediaError ? (
-              <div className="relative inline-flex max-w-full items-center justify-center">
+              <div className="inline-flex max-w-full items-center justify-center">
                 <video
                   key={`${work.slug}-${retryNonce}`}
                   ref={videoRef}
@@ -205,13 +204,6 @@ export function WorkLightbox({ works, index, onClose, onNavigate }: WorkLightbox
                     />
                   )}
                 </video>
-                <span
-                  aria-hidden="true"
-                  data-testid="video-watermark"
-                  className="pointer-events-none absolute top-3 right-3 z-10 select-none bg-black/45 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/85 backdrop-blur-[2px] md:top-4 md:right-4"
-                >
-                  {siteConfig.videoProtection.watermarkLabel}
-                </span>
               </div>
             ) : mediaError ? (
               <div className="flex min-h-64 w-full max-w-xl flex-col items-center justify-center gap-5 border border-border px-6 text-center">
