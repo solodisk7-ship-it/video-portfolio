@@ -15,6 +15,11 @@ describe('WorksSection', () => {
     expect(screen.getAllByRole('button', { name: /^Open / })).toHaveLength(3)
     expect(screen.queryByRole('button', { name: 'Load More' })).not.toBeInTheDocument()
     expect(screen.queryByText('2026')).not.toBeInTheDocument()
+    const landscapePoster = screen
+      .getByRole('button', { name: /^Open Boots — Landscape/ })
+      .querySelector('img')
+    expect(landscapePoster).toHaveClass('object-cover')
+    expect(landscapePoster).toHaveStyle({ objectPosition: '50% 50%' })
   })
 
   it('keeps arrow keys available to native video controls and retries media errors', async () => {

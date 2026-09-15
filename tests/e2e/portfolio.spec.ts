@@ -42,12 +42,13 @@ test('serves the first staged MP4 with MIME and byte ranges', async ({ request }
   expect(response.headers()['content-range']).toMatch(/^bytes 0-1023\//)
 })
 
-test('keeps all cards uncropped and avoids horizontal scroll at mobile width', async ({ page }) => {
+test('crops card posters consistently and avoids horizontal scroll at mobile width', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
 
   const firstImage = page.getByRole('button', { name: /^Open Boots — Landscape/ }).locator('img')
-  await expect(firstImage).toHaveCSS('object-fit', 'contain')
+  await expect(firstImage).toHaveCSS('object-fit', 'cover')
+  await expect(firstImage).toHaveCSS('object-position', '50% 50%')
   const hasHorizontalScroll = await page.evaluate(
     () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
   )

@@ -41,7 +41,7 @@ export function WorksSection() {
 
       <div
         id="work-grid"
-        className="mt-8 grid grid-cols-1 items-start gap-x-10 gap-y-12 md:mt-12 md:grid-cols-[repeat(2,minmax(0,1fr))] lg:gap-x-14 lg:gap-y-16"
+        className="mt-8 grid grid-cols-1 items-start gap-x-8 gap-y-12 md:mt-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-14"
       >
         {displayedWorks.map((work, index) => (
           <WorkCard

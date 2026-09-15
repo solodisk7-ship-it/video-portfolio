@@ -8,6 +8,7 @@ export type Work = {
   year: number
   ratio: AspectRatio
   poster: string
+  posterPosition?: string
   videoKey?: string
   captions?: string
   featured: boolean
@@ -24,6 +25,7 @@ export const works: Work[] = [
     year: 2026,
     ratio: '16:9',
     poster: '/works/boots-landscape-v01.webp',
+    posterPosition: '50% 50%',
     videoKey: 'videos/boots-landscape-v01.mp4',
     featured: true,
     order: 1,
@@ -37,6 +39,7 @@ export const works: Work[] = [
     year: 2026,
     ratio: '1:1',
     poster: '/works/boots-square-v01.webp',
+    posterPosition: '50% 46%',
     videoKey: 'videos/boots-square-v01.mp4',
     featured: true,
     order: 2,
@@ -50,6 +53,7 @@ export const works: Work[] = [
     year: 2026,
     ratio: '9:16',
     poster: '/works/boots-vertical-v01.webp',
+    posterPosition: '50% 45%',
     videoKey: 'videos/boots-vertical-v01.mp4',
     featured: true,
     order: 3,
