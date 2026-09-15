@@ -27,10 +27,14 @@ Use the same metadata for all three entries:
 
 - category: `Fashion Concept`
 - role: `Video Editing`
-- year: `2026`
+- year: `2026` (catalogue data only; not displayed in the current UI)
 
 The wording intentionally presents the work professionally without implying a
 commercial client campaign.
+
+Hide the year from both the card metadata line and the lightbox metadata line
+while the public catalogue is small. Keep the value in the typed catalogue so
+it can be restored later without reconstructing historical data.
 
 ## Media mapping
 
@@ -67,9 +71,11 @@ target rather than the current 30-work minimum.
 ## Interaction and performance
 
 Do not change the approved two-column desktop grid, one-column mobile grid,
-white lightbox, native video controls or restrained motion. Cards display only
-their local posters. The selected MP4 is mounted only after its card opens with
-`preload="metadata"`; closing or navigating releases the previous video source.
+white lightbox, native video controls or restrained motion. The only metadata
+display change is removing the year from cards and the lightbox. Cards display
+only their local posters. The selected MP4 is mounted only after its card opens
+with `preload="metadata"`; closing or navigating releases the previous video
+source.
 
 Every video must remain fully visible with `object-contain`. No crop, autoplay,
 loop, moving card preview or eager MP4 request is introduced.
