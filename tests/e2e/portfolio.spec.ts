@@ -10,7 +10,7 @@ test('defers MP4 loading and restores the page after close', async ({ page }) =>
   })
 
   await page.goto('/')
-  await expect(page.getByRole('button', { name: /^Open / })).toHaveCount(3)
+  await expect(page.getByRole('button', { name: /^Open / })).toHaveCount(9)
   expect(mp4Requests).toHaveLength(0)
   await expect(page.locator('#work').getByText('2026')).toHaveCount(0)
 

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "release": "boots-staging-v01",
+  "release": "sport-staging-v01",
   "publishedCommit": "local-demo",
-  "generatedAt": "2026-09-15T12:24:13.921Z",
+  "generatedAt": "2026-09-15T17:44:51.631Z",
   "items": [
     {
       "slug": "boots-landscape",
@@ -43,6 +43,96 @@
       "resolution": {
         "width": 900,
         "height": 1600
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    {
+      "slug": "sport-main-film",
+      "objectKey": "videos/sport-main-film-v01.mp4",
+      "sha256": "0d5a7b8b352078753fcc483a663b3da0a03ee74f536558e9bf940e26787beefd",
+      "bytes": 16139802,
+      "durationSeconds": 30.037,
+      "resolution": {
+        "width": 1920,
+        "height": 1080
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    {
+      "slug": "sport-hockey",
+      "objectKey": "videos/sport-hockey-v01.mp4",
+      "sha256": "03623bb4592ab2f9d0964e7395eca35a23bd286ee73f110a695a9ca24ceb4ec8",
+      "bytes": 2625366,
+      "durationSeconds": 10.026,
+      "resolution": {
+        "width": 900,
+        "height": 900
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    {
+      "slug": "sport-american-football",
+      "objectKey": "videos/sport-american-football-v01.mp4",
+      "sha256": "5fab5488ff1b72577b5b0cd494a63ef16ffb01e6a5bd53c317ceb3bf96e1f2f7",
+      "bytes": 2613744,
+      "durationSeconds": 10.026,
+      "resolution": {
+        "width": 900,
+        "height": 900
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    {
+      "slug": "sport-soccer",
+      "objectKey": "videos/sport-soccer-v01.mp4",
+      "sha256": "a683aadcdc5b75d807c123574e8db5556245ee52b8816acabab06e8717eec75c",
+      "bytes": 3607698,
+      "durationSeconds": 10.026,
+      "resolution": {
+        "width": 900,
+        "height": 900
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    {
+      "slug": "sport-baseball",
+      "objectKey": "videos/sport-baseball-v01.mp4",
+      "sha256": "ec486776b38934d26bb38dc5d6e605264fcc0eb0786320897585d2daf294cb54",
+      "bytes": 2088522,
+      "durationSeconds": 10.026,
+      "resolution": {
+        "width": 900,
+        "height": 900
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    {
+      "slug": "sport-basketball",
+      "objectKey": "videos/sport-basketball-v01.mp4",
+      "sha256": "28f3c340dd370115c791b3819bec7f5c0e45d9dbad7d25b49b7389532e5659af",
+      "bytes": 3370320,
+      "durationSeconds": 10.026,
+      "resolution": {
+        "width": 900,
+        "height": 900
       },
       "videoCodec": "h264",
       "audioCodec": "aac",
