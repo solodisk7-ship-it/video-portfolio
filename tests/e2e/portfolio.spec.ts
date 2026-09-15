@@ -14,7 +14,7 @@ test('defers MP4 loading and restores the page after close', async ({ page }) =>
   expect(mp4Requests).toHaveLength(0)
   await expect(page.locator('#work').getByText('2026')).toHaveCount(0)
 
-  const firstCard = page.getByRole('button', { name: /^Open Boots — Landscape/ })
+  const firstCard = page.getByRole('button', { name: /^Open Boots — Horizontal/ })
   const mediaRequest = page.waitForRequest(/\.mp4(?:\?|$)/)
   await firstCard.click()
   await mediaRequest
@@ -46,7 +46,7 @@ test('crops card posters consistently and avoids horizontal scroll at mobile wid
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
 
-  const firstImage = page.getByRole('button', { name: /^Open Boots — Landscape/ }).locator('img')
+  const firstImage = page.getByRole('button', { name: /^Open Boots — Horizontal/ }).locator('img')
   await expect(firstImage).toHaveCSS('object-fit', 'cover')
   await expect(firstImage).toHaveCSS('object-position', '50% 50%')
   const hasHorizontalScroll = await page.evaluate(

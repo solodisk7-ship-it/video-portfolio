@@ -19,7 +19,7 @@ export type Work = {
 export const works: Work[] = [
   {
     slug: 'boots-landscape',
-    title: 'Boots — Landscape',
+    title: 'Boots — Horizontal',
     category: 'Fashion Concept',
     role: 'Video Editing',
     year: 2026,

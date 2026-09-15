@@ -19,7 +19,7 @@ device-based source switching.
 
 Use these public titles in this order:
 
-1. `Boots — Landscape`
+1. `Boots — Horizontal`
 2. `Boots — Square`
 3. `Boots — Vertical`
 
@@ -40,7 +40,7 @@ it can be restored later without reconstructing historical data.
 
 | Work | Ratio | Duration | Source file | Versioned object key |
 | --- | --- | ---: | --- | --- |
-| Boots — Landscape | 16:9 | 30 s | `Katerina Yakunina Boots 1920x1080 30s RC4.mp4` | `videos/boots-landscape-v01.mp4` |
+| Boots — Horizontal | 16:9 | 30 s | `Katerina Yakunina Boots 1920x1080 30s RC4.mp4` | `videos/boots-landscape-v01.mp4` |
 | Boots — Square | 1:1 | 15 s | `Katerina Yakunina Boots 720x720 15s RC2.mp4` | `videos/boots-square-v01.mp4` |
 | Boots — Vertical | 9:16 | 10 s | `Katerina Yakunina Boots 900x1600 10s RC2.mp4` | `videos/boots-vertical-v01.mp4` |
 

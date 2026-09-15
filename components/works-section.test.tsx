@@ -16,7 +16,7 @@ describe('WorksSection', () => {
     expect(screen.queryByRole('button', { name: 'Load More' })).not.toBeInTheDocument()
     expect(screen.queryByText('2026')).not.toBeInTheDocument()
     const landscapePoster = screen
-      .getByRole('button', { name: /^Open Boots — Landscape/ })
+      .getByRole('button', { name: /^Open Boots — Horizontal/ })
       .querySelector('img')
     expect(landscapePoster).toHaveClass('object-cover')
     expect(landscapePoster).toHaveStyle({ objectPosition: '50% 50%' })
@@ -30,7 +30,7 @@ describe('WorksSection', () => {
       </div>,
     )
 
-    await user.click(screen.getByRole('button', { name: /^Open Boots — Landscape/ }))
+    await user.click(screen.getByRole('button', { name: /^Open Boots — Horizontal/ }))
     const dialog = await screen.findByRole('dialog')
     const video = dialog.querySelector('video')
     expect(video).toHaveAttribute('preload', 'metadata')
@@ -46,7 +46,7 @@ describe('WorksSection', () => {
     expect(contextMenu.defaultPrevented).toBe(true)
 
     fireEvent.keyDown(video!, { key: 'ArrowRight' })
-    expect(within(dialog).getByRole('heading', { name: 'Boots — Landscape' })).toBeInTheDocument()
+    expect(within(dialog).getByRole('heading', { name: 'Boots — Horizontal' })).toBeInTheDocument()
 
     fireEvent.error(video!)
     expect(await screen.findByRole('button', { name: 'Retry' })).toBeInTheDocument()
