@@ -4,8 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { WorksSection } from '@/components/works-section'
 
 describe('WorksSection', () => {
-  it('loads no video before opening the lightbox and reveals work in batches', async () => {
-    const user = userEvent.setup()
+  it('loads no video and shows the staged catalogue without public years', () => {
     render(
       <div id="site-shell">
         <WorksSection />
@@ -13,11 +12,9 @@ describe('WorksSection', () => {
     )
 
     expect(document.querySelector('video')).not.toBeInTheDocument()
-    expect(screen.getAllByRole('button', { name: /^Open / })).toHaveLength(6)
-
-    await user.click(screen.getByRole('button', { name: 'Load More' }))
-    expect(screen.getAllByRole('button', { name: /^Open / })).toHaveLength(12)
+    expect(screen.getAllByRole('button', { name: /^Open / })).toHaveLength(3)
     expect(screen.queryByRole('button', { name: 'Load More' })).not.toBeInTheDocument()
+    expect(screen.queryByText('2026')).not.toBeInTheDocument()
   })
 
   it('keeps arrow keys available to native video controls and retries media errors', async () => {
@@ -28,7 +25,7 @@ describe('WorksSection', () => {
       </div>,
     )
 
-    await user.click(screen.getByRole('button', { name: /^Open Halcyon/ }))
+    await user.click(screen.getByRole('button', { name: /^Open Boots — Landscape/ }))
     const dialog = await screen.findByRole('dialog')
     const video = dialog.querySelector('video')
     expect(video).toHaveAttribute('preload', 'metadata')
@@ -44,7 +41,7 @@ describe('WorksSection', () => {
     expect(contextMenu.defaultPrevented).toBe(true)
 
     fireEvent.keyDown(video!, { key: 'ArrowRight' })
-    expect(within(dialog).getByRole('heading', { name: 'Halcyon' })).toBeInTheDocument()
+    expect(within(dialog).getByRole('heading', { name: 'Boots — Landscape' })).toBeInTheDocument()
 
     fireEvent.error(video!)
     expect(await screen.findByRole('button', { name: 'Retry' })).toBeInTheDocument()
@@ -52,7 +49,7 @@ describe('WorksSection', () => {
     await waitFor(() => expect(dialog.querySelector('video')).toBeInTheDocument())
 
     fireEvent.keyDown(window, { key: 'ArrowRight' })
-    expect(within(dialog).getByRole('heading', { name: 'Nocturne' })).toBeInTheDocument()
+    expect(within(dialog).getByRole('heading', { name: 'Boots — Square' })).toBeInTheDocument()
 
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()

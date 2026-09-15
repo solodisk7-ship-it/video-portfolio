@@ -1,18 +1,48 @@
 {
   "schemaVersion": 1,
-  "release": "local-demo",
+  "release": "boots-staging-v01",
   "publishedCommit": "local-demo",
-  "generatedAt": "2026-09-01T00:00:00.000Z",
+  "generatedAt": "2026-09-15T12:24:13.921Z",
   "items": [
     {
-      "slug": "demo-source",
-      "objectKey": "xionic2-demo-v01.mp4",
-      "sha256": "521f9229219bbe7e063c75fa887e5495167b0e80d2352f658b7704a0682e0c83",
-      "bytes": 1886921,
-      "durationSeconds": 6.037,
+      "slug": "boots-landscape",
+      "objectKey": "videos/boots-landscape-v01.mp4",
+      "sha256": "a4069621c41880a203fa769835f83ffbd7c2a73ab5ab1794d6cd29ed95183e66",
+      "bytes": 16975239,
+      "durationSeconds": 30.037,
       "resolution": {
-        "width": 432,
-        "height": 768
+        "width": 1920,
+        "height": 1080
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    {
+      "slug": "boots-square",
+      "objectKey": "videos/boots-square-v01.mp4",
+      "sha256": "28b3dfce6b7bcc07d8176c405065dc82176c941094fac2d2c832493b231eda13",
+      "bytes": 2786243,
+      "durationSeconds": 15.018,
+      "resolution": {
+        "width": 720,
+        "height": 720
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    {
+      "slug": "boots-vertical",
+      "objectKey": "videos/boots-vertical-v01.mp4",
+      "sha256": "51999e8b5e6f0b750e5baa4eff2b7f962fc7a970a251dcf6e3533c0fbfe59a5f",
+      "bytes": 4402905,
+      "durationSeconds": 10.026,
+      "resolution": {
+        "width": 900,
+        "height": 1600
       },
       "videoCodec": "h264",
       "audioCodec": "aac",

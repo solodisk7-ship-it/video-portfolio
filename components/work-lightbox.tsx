@@ -254,7 +254,7 @@ export function WorkLightbox({ works, index, onClose, onNavigate }: WorkLightbox
               id="lightbox-meta"
               className="font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground"
             >
-              {work.category} &middot; {work.role} &middot; {work.year}
+              {work.category} &middot; {work.role}
             </p>
           </div>
           <div className="mt-5 flex items-center gap-2 md:mt-0 md:justify-end">

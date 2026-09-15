@@ -16,7 +16,7 @@ export function WorkCard({ work, priority = false, onOpen }: WorkCardProps) {
       type="button"
       onClick={onOpen}
       className="group flex w-full cursor-pointer flex-col text-left focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-ring"
-      aria-label={`Open ${work.title} — ${work.category}, ${work.year}`}
+      aria-label={`Open ${work.title} — ${work.category}`}
     >
       <div className="relative aspect-square w-full shrink-0 bg-background">
         <Image
@@ -46,7 +46,7 @@ export function WorkCard({ work, priority = false, onOpen }: WorkCardProps) {
           {work.title}
         </h3>
         <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground">
-          {work.category} &middot; {work.role} &middot; {work.year}
+          {work.category} &middot; {work.role}
         </p>
       </div>
     </button>

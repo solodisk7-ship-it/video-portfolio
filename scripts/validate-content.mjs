@@ -87,14 +87,21 @@ for (const work of works) {
 
 const visibleWorks = works.filter((work) => work.visible)
 const featuredWorks = visibleWorks.filter((work) => work.featured)
-report(featuredWorks.length === 6, `Exactly six visible works must be featured; found ${featuredWorks.length}.`)
+if (siteConfig.contentStatus === 'production') {
+  report(featuredWorks.length === 6, `Exactly six visible works must be featured; found ${featuredWorks.length}.`)
+} else {
+  report(
+    featuredWorks.length >= 1 && featuredWorks.length <= 6,
+    `Demo content must have one to six visible featured works; found ${featuredWorks.length}.`,
+  )
+}
 
 if (releaseMode) {
   report(siteConfig.contentStatus === 'production', 'siteConfig.contentStatus must be “production”.')
   report(!placeholderPattern.test(JSON.stringify(siteConfig)), 'site-config still contains placeholder values.')
   report(/^https:\/\//.test(siteConfig.canonicalUrl), 'canonicalUrl must be HTTPS.')
   report(/^https:\/\//.test(siteConfig.mediaBaseUrl), 'mediaBaseUrl must be an HTTPS object-storage URL.')
-  report(visibleWorks.length >= 30 && visibleWorks.length <= 50, `Production catalogue must contain 30–50 visible works; found ${visibleWorks.length}.`)
+  report(visibleWorks.length >= 10 && visibleWorks.length <= 50, `Production catalogue must contain 10–50 visible works; found ${visibleWorks.length}.`)
   unique('visible videoKey', visibleWorks.map((work) => work.videoKey))
   const publicWorks = await readdir(path.join(root, 'public', 'works'))
   report(

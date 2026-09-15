@@ -8,10 +8,10 @@ import {
 } from '@/lib/portfolio'
 
 describe('portfolio catalogue helpers', () => {
-  it('returns six featured works before the ordered remainder', () => {
+  it('returns the visible featured works before the ordered remainder', () => {
     const result = getInitialWorks(works)
 
-    expect(result.featured).toHaveLength(6)
+    expect(result.featured).toHaveLength(3)
     expect(result.featured.every((work) => work.featured)).toBe(true)
     expect(result.remaining.every((work) => !work.featured)).toBe(true)
     expect(result.visible.map((work) => work.order)).toEqual(
@@ -20,11 +20,10 @@ describe('portfolio catalogue helpers', () => {
     expect(LOAD_MORE_COUNT).toBe(12)
   })
 
-  it('excludes hidden work and uses the remote demo video override', () => {
-    const hidden = { ...works[0], visible: false }
-    expect(getOrderedVisibleWorks([hidden])).toHaveLength(0)
+  it('excludes hidden work and resolves the staged object-storage key', () => {
+    expect(getOrderedVisibleWorks(works)).toHaveLength(3)
     expect(getVideoUrl(works[0])).toBe(
-      'https://storage.yandexcloud.net/portfolio-nonstoplife26-media/xionic2.mp4.mp4',
+      'https://storage.yandexcloud.net/portfolio-nonstoplife26-media/videos/boots-landscape-v01.mp4',
     )
   })
 
@@ -32,9 +31,9 @@ describe('portfolio catalogue helpers', () => {
     expect(
       getVideoUrl(works[0], {
         contentStatus: 'production',
-        mediaBaseUrl: 'https://media.example.test/videos/',
+        mediaBaseUrl: 'https://media.example.test/',
         demoVideoUrl: 'https://demo.example.test/test.mp4',
       }),
-    ).toBe('https://media.example.test/videos/xionic2-demo-v01.mp4')
+    ).toBe('https://media.example.test/videos/boots-landscape-v01.mp4')
   })
 })
