@@ -62,7 +62,7 @@ export const works: Work[] = [
   {
     slug: 'sport-main-film',
     title: 'Sport — Main Film',
-    category: 'Sports Concept',
+    category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
     ratio: '16:9',
@@ -76,7 +76,7 @@ export const works: Work[] = [
   {
     slug: 'sport-hockey',
     title: 'Sport — Hockey',
-    category: 'Sports Concept',
+    category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
     ratio: '1:1',
@@ -90,7 +90,7 @@ export const works: Work[] = [
   {
     slug: 'sport-american-football',
     title: 'Sport — American Football',
-    category: 'Sports Concept',
+    category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
     ratio: '1:1',
@@ -104,7 +104,7 @@ export const works: Work[] = [
   {
     slug: 'sport-soccer',
     title: 'Sport — Soccer',
-    category: 'Sports Concept',
+    category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
     ratio: '1:1',
@@ -118,7 +118,7 @@ export const works: Work[] = [
   {
     slug: 'sport-baseball',
     title: 'Sport — Baseball',
-    category: 'Sports Concept',
+    category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
     ratio: '1:1',
@@ -132,7 +132,7 @@ export const works: Work[] = [
   {
     slug: 'sport-basketball',
     title: 'Sport — Basketball',
-    category: 'Sports Concept',
+    category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
     ratio: '1:1',

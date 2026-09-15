@@ -8,7 +8,7 @@ three-by-three desktop grid without `Load More`.
 
 ## Public titles and metadata
 
-All Sport entries use `Sports Concept · Video Editing` and do not display a
+All Sport entries use `Sport Concept · Video Editing` and do not display a
 year. Public titles avoid league names so the training work cannot be mistaken
 for an official league commission.
 
@@ -53,4 +53,3 @@ video ratio with `object-contain`.
 
 Do not publish site references before all six object-storage URLs pass the
 checks, so no broken cards reach the public site.
-
