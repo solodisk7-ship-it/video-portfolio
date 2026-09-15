@@ -38,7 +38,7 @@ export const works: Work[] = [
     role: 'Video Editing',
     year: 2026,
     ratio: '1:1',
-    poster: '/works/boots-square-v01.webp',
+    poster: '/works/boots-square-v02.webp',
     posterPosition: '50% 46%',
     videoKey: 'videos/boots-square-v01.mp4',
     featured: true,
