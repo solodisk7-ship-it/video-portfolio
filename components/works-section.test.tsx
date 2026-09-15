@@ -12,7 +12,7 @@ describe('WorksSection', () => {
     )
 
     expect(document.querySelector('video')).not.toBeInTheDocument()
-    expect(screen.getAllByRole('button', { name: /^Open / })).toHaveLength(9)
+    expect(screen.getAllByRole('button', { name: /^Open / })).toHaveLength(11)
     expect(screen.queryByRole('button', { name: 'Load More' })).not.toBeInTheDocument()
     expect(screen.queryByText('2026')).not.toBeInTheDocument()
     const landscapePoster = screen
@@ -23,6 +23,33 @@ describe('WorksSection', () => {
     expect(
       screen.getByRole('button', { name: /^Open Sport — Hockey/ }),
     ).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /^Open Pottery Workshop/ }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /^Open Shoes — Square/ }),
+    ).toBeInTheDocument()
+  })
+
+  it('shows the AI production note only for the Pottery project', async () => {
+    const user = userEvent.setup()
+    render(
+      <div id="site-shell">
+        <WorksSection />
+      </div>,
+    )
+
+    await user.click(screen.getByRole('button', { name: /^Open Pottery Workshop/ }))
+    const dialog = await screen.findByRole('dialog')
+    expect(
+      within(dialog).getByText(/Graphics, video, music and voice-over were created entirely/),
+    ).toBeInTheDocument()
+
+    fireEvent.keyDown(window, { key: 'Escape' })
+    await user.click(screen.getByRole('button', { name: /^Open Shoes — Square/ }))
+    expect(
+      within(await screen.findByRole('dialog')).queryByText(/created entirely with AI tools/),
+    ).not.toBeInTheDocument()
   })
 
   it('keeps arrow keys available to native video controls and retries media errors', async () => {

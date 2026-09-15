@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "release": "sport-staging-v01",
+  "release": "pottery-shoes-staging-v01",
   "publishedCommit": "local-demo",
-  "generatedAt": "2026-09-15T17:44:51.631Z",
+  "generatedAt": "2026-09-15T18:57:24.356Z",
   "items": [
     {
       "slug": "boots-landscape",
@@ -133,6 +133,36 @@
       "resolution": {
         "width": 900,
         "height": 900
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    {
+      "slug": "pottery-workshop",
+      "objectKey": "videos/pottery-workshop-v01.mp4",
+      "sha256": "8a8b84caa96f0a8d5a30cf8d39bd56cdfae4f7ba01e3477512b6321a11670595",
+      "bytes": 14332724,
+      "durationSeconds": 29.93,
+      "resolution": {
+        "width": 1920,
+        "height": 1080
+      },
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709"
+    },
+    {
+      "slug": "shoes-square",
+      "objectKey": "videos/shoes-square-v01.mp4",
+      "sha256": "722d949c167ce442af1b185b7cc8b2078467c0da22171bc138e58a65d32a4551",
+      "bytes": 9123873,
+      "durationSeconds": 30.037,
+      "resolution": {
+        "width": 1080,
+        "height": 1080
       },
       "videoCodec": "h264",
       "audioCodec": "aac",

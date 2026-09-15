@@ -11,7 +11,7 @@ describe('portfolio catalogue helpers', () => {
   it('returns the visible featured works before the ordered remainder', () => {
     const result = getInitialWorks(works)
 
-    expect(result.featured).toHaveLength(9)
+    expect(result.featured).toHaveLength(11)
     expect(result.featured.every((work) => work.featured)).toBe(true)
     expect(result.remaining.every((work) => !work.featured)).toBe(true)
     expect(result.visible.map((work) => work.order)).toEqual(
@@ -21,7 +21,7 @@ describe('portfolio catalogue helpers', () => {
   })
 
   it('excludes hidden work and resolves the staged object-storage key', () => {
-    expect(getOrderedVisibleWorks(works)).toHaveLength(9)
+    expect(getOrderedVisibleWorks(works)).toHaveLength(11)
     expect(getVideoUrl(works[0])).toBe(
       'https://storage.yandexcloud.net/portfolio-nonstoplife26-media/videos/boots-landscape-v01.mp4',
     )

@@ -11,6 +11,7 @@ export type Work = {
   posterPosition?: string
   videoKey?: string
   captions?: string
+  description?: string
   featured: boolean
   order: number
   visible: boolean
@@ -141,6 +142,36 @@ export const works: Work[] = [
     videoKey: 'videos/sport-basketball-v01.mp4',
     featured: true,
     order: 9,
+    visible: true,
+  },
+  {
+    slug: 'pottery-workshop',
+    title: 'Pottery Workshop',
+    category: 'AI-Generated Film',
+    role: 'Creative Direction & Editing',
+    year: 2026,
+    ratio: '16:9',
+    poster: '/works/pottery-workshop-v01.webp',
+    posterPosition: '50% 50%',
+    videoKey: 'videos/pottery-workshop-v01.mp4',
+    description:
+      'Graphics, video, music and voice-over were created entirely with AI tools. Creative direction and final editing by the author.',
+    featured: true,
+    order: 10,
+    visible: true,
+  },
+  {
+    slug: 'shoes-square',
+    title: 'Shoes — Square',
+    category: 'Fashion Concept',
+    role: 'Video Editing',
+    year: 2026,
+    ratio: '1:1',
+    poster: '/works/shoes-square-v01.webp',
+    posterPosition: '50% 50%',
+    videoKey: 'videos/shoes-square-v01.mp4',
+    featured: true,
+    order: 11,
     visible: true,
   },
 

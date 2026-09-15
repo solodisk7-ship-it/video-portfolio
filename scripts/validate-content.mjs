@@ -91,8 +91,8 @@ if (siteConfig.contentStatus === 'production') {
   report(featuredWorks.length === 6, `Exactly six visible works must be featured; found ${featuredWorks.length}.`)
 } else {
   report(
-    featuredWorks.length >= 1 && featuredWorks.length <= 9,
-    `Demo content must have one to nine visible featured works; found ${featuredWorks.length}.`,
+    featuredWorks.length >= 1 && featuredWorks.length <= 11,
+    `Demo content must have one to eleven visible featured works; found ${featuredWorks.length}.`,
   )
 }
 

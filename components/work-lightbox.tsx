@@ -156,7 +156,11 @@ export function WorkLightbox({ works, index, onClose, onNavigate }: WorkLightbox
       role="dialog"
       aria-modal="true"
       aria-labelledby="lightbox-title"
-      aria-describedby="lightbox-meta"
+      aria-describedby={
+        work.description
+          ? 'lightbox-meta lightbox-description'
+          : 'lightbox-meta'
+      }
       className="fixed inset-0 z-50 overflow-y-auto bg-background"
     >
       <div className="mx-auto flex min-h-full max-w-6xl flex-col px-6 py-4 md:px-10 md:py-6">
@@ -248,6 +252,14 @@ export function WorkLightbox({ works, index, onClose, onNavigate }: WorkLightbox
             >
               {work.category} &middot; {work.role}
             </p>
+            {work.description && (
+              <p
+                id="lightbox-description"
+                className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground"
+              >
+                {work.description}
+              </p>
+            )}
           </div>
           <div className="mt-5 flex items-center gap-2 md:mt-0 md:justify-end">
             <button
