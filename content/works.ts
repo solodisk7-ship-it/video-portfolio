@@ -62,7 +62,7 @@ export const works: Work[] = [
   },
   {
     slug: 'sport-main-film',
-    title: 'Sport — Main Film',
+    title: 'Sport (Main Film) — Horizontal',
     category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
@@ -76,7 +76,7 @@ export const works: Work[] = [
   },
   {
     slug: 'sport-hockey',
-    title: 'Sport — Hockey',
+    title: 'Sport (Hockey) — Square',
     category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
@@ -90,7 +90,7 @@ export const works: Work[] = [
   },
   {
     slug: 'sport-american-football',
-    title: 'Sport — American Football',
+    title: 'Sport (American Football) — Square',
     category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
@@ -104,7 +104,7 @@ export const works: Work[] = [
   },
   {
     slug: 'sport-soccer',
-    title: 'Sport — Soccer',
+    title: 'Sport (Soccer) — Square',
     category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
@@ -118,7 +118,7 @@ export const works: Work[] = [
   },
   {
     slug: 'sport-baseball',
-    title: 'Sport — Baseball',
+    title: 'Sport (Baseball) — Square',
     category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
@@ -132,7 +132,7 @@ export const works: Work[] = [
   },
   {
     slug: 'sport-basketball',
-    title: 'Sport — Basketball',
+    title: 'Sport (Basketball) — Square',
     category: 'Sport Concept',
     role: 'Video Editing',
     year: 2026,
@@ -146,7 +146,7 @@ export const works: Work[] = [
   },
   {
     slug: 'pottery-workshop',
-    title: 'Pottery Workshop',
+    title: 'Pottery Workshop — Horizontal',
     category: 'AI-Generated Film',
     role: 'Creative Direction & Editing',
     year: 2026,
@@ -167,7 +167,7 @@ export const works: Work[] = [
     role: 'Video Editing',
     year: 2026,
     ratio: '1:1',
-    poster: '/works/shoes-square-v01.webp',
+    poster: '/works/shoes-square-v02.webp',
     posterPosition: '50% 50%',
     videoKey: 'videos/shoes-square-v01.mp4',
     featured: true,

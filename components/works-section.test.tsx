@@ -21,10 +21,10 @@ describe('WorksSection', () => {
     expect(landscapePoster).toHaveClass('object-cover')
     expect(landscapePoster).toHaveStyle({ objectPosition: '50% 50%' })
     expect(
-      screen.getByRole('button', { name: /^Open Sport — Hockey/ }),
+      screen.getByRole('button', { name: /^Open Sport \(Hockey\) — Square/ }),
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: /^Open Pottery Workshop/ }),
+      screen.getByRole('button', { name: /^Open Pottery Workshop — Horizontal/ }),
     ).toBeInTheDocument()
     expect(
       screen.getByRole('button', { name: /^Open Shoes — Square/ }),
@@ -39,7 +39,9 @@ describe('WorksSection', () => {
       </div>,
     )
 
-    await user.click(screen.getByRole('button', { name: /^Open Pottery Workshop/ }))
+    await user.click(
+      screen.getByRole('button', { name: /^Open Pottery Workshop — Horizontal/ }),
+    )
     const dialog = await screen.findByRole('dialog')
     expect(
       within(dialog).getByText(/Graphics, video, music and voice-over were created entirely/),
