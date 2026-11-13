@@ -30,3 +30,9 @@ The owner approved the four maintenance items from the 2026-09-16 audit and expl
 7. Record the actual test outcomes and any environment limitations. Do not push or deploy.
 
 The separate writing-plans skill is not available in this session; the explicit implementation/verification plan above is the fallback. The audit and the owner's approval are the design input; no further interface redesign is introduced.
+
+## Verification finding
+
+WebKit exposed a focus-restoration defect: pointer-clicking a button does not always focus it, so the lightbox remembered the document rather than the opener. Focus the card without scrolling immediately before opening the lightbox and add a regression test. This is a behavior correction within the planned keyboard/focus checks, not a visual redesign.
+
+Browser UI tests assert source assignment and Retry error handling, not that every engine must immediately honor the preload hint. Native playback of every real MP4 is checked separately in installed Edge; Range/MIME/CORS are checked by the explicit media suite.

@@ -21,7 +21,7 @@ export default function Page() {
       <footer className="mx-auto max-w-6xl px-6 pt-20 pb-8 md:px-10 md:pt-28">
         <div className="flex flex-col gap-2 border-t border-border pt-6 md:flex-row md:items-baseline md:justify-end">
           <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground">
-            &copy; 2026 &mdash; All rights reserved
+            &copy; 2027 &mdash; All rights reserved
           </p>
         </div>
       </footer>

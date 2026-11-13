@@ -18,20 +18,13 @@ export const metadata: Metadata = {
     url: '/',
     siteName: siteConfig.publicName,
     locale: 'en_US',
-    images: [
-      {
-        url: '/works/halcyon.webp',
-        width: 1600,
-        height: 900,
-        alt: `${siteConfig.publicName} portfolio`,
-      },
-    ],
+    images: [{ ...siteConfig.socialImage }],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${siteConfig.publicName} — ${siteConfig.siteTitle}`,
     description: siteConfig.description,
-    images: ['/works/halcyon.webp'],
+    images: [siteConfig.socialImage.url],
   },
   icons: {
     icon: [

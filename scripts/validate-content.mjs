@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { siteConfig } from '../content/site-config.ts'
 import { works } from '../content/works.ts'
 import { getDemoVideoConfigErrors } from '../lib/site-config-validation.ts'
+import { getCatalogueVisibilityErrors, getReleaseModeErrors } from '../lib/catalogue-validation.ts'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const releaseMode = process.argv.includes('--release')
@@ -87,22 +88,21 @@ for (const work of works) {
 
 const visibleWorks = works.filter((work) => work.visible)
 const featuredWorks = visibleWorks.filter((work) => work.featured)
-if (siteConfig.contentStatus === 'production') {
-  report(featuredWorks.length === 6, `Exactly six visible works must be featured; found ${featuredWorks.length}.`)
-} else {
-  report(
-    featuredWorks.length >= 1 && featuredWorks.length <= 11,
-    `Demo content must have one to eleven visible featured works; found ${featuredWorks.length}.`,
-  )
-}
+errors.push(...getCatalogueVisibilityErrors(works))
+unique('visible videoKey', visibleWorks.map((work) => work.videoKey))
+
+const socialImage = siteConfig.socialImage
+await localAsset(socialImage.url, ['.webp'], 'Social sharing image', 400 * 1024)
+report(visibleWorks.some((work) => work.poster === socialImage.url), 'Social sharing image must be the poster of a visible work.')
+report(Number.isInteger(socialImage.width) && socialImage.width > 0, 'Social sharing image needs a positive width.')
+report(Number.isInteger(socialImage.height) && socialImage.height > 0, 'Social sharing image needs a positive height.')
+report(Boolean(socialImage.alt.trim()), 'Social sharing image needs descriptive alt text.')
 
 if (releaseMode) {
-  report(siteConfig.contentStatus === 'production', 'siteConfig.contentStatus must be “production”.')
+  errors.push(...getReleaseModeErrors(siteConfig.contentStatus))
   report(!placeholderPattern.test(JSON.stringify(siteConfig)), 'site-config still contains placeholder values.')
   report(/^https:\/\//.test(siteConfig.canonicalUrl), 'canonicalUrl must be HTTPS.')
   report(/^https:\/\//.test(siteConfig.mediaBaseUrl), 'mediaBaseUrl must be an HTTPS object-storage URL.')
-  report(visibleWorks.length >= 10 && visibleWorks.length <= 50, `Production catalogue must contain 10–50 visible works; found ${visibleWorks.length}.`)
-  unique('visible videoKey', visibleWorks.map((work) => work.videoKey))
   const publicWorks = await readdir(path.join(root, 'public', 'works'))
   report(
     !publicWorks.some((file) => file.toLowerCase().endsWith('.mp4')),

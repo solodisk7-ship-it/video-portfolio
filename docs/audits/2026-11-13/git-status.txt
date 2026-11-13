@@ -1,0 +1,32 @@
+ M .github/workflows/quality.yml
+ M README.md
+ M app/layout.tsx
+ M app/page.tsx
+ M components/about-section.tsx
+ M components/work-card.tsx
+ M components/work-lightbox.tsx
+ M components/works-section.test.tsx
+ M components/works-section.tsx
+ M content/site-config.ts
+ M content/works.ts
+ M docs/content-operations.md
+ M docs/deployment.md
+ M docs/plans/2026-09-16-local-demo-maintenance-design.md
+ M docs/qa-checklist.md
+ M lib/portfolio.test.ts
+ M lib/portfolio.ts
+ M package.json
+ M playwright.config.ts
+ M pnpm-lock.yaml
+ M scripts/validate-content.mjs
+ M tests/e2e/portfolio.spec.ts
+?? components/works-section-growth.test.tsx
+?? docs/audits/
+?? lib/catalogue-validation.test.ts
+?? lib/catalogue-validation.ts
+?? playwright.media.config.ts
+?? public/works/after-effects-showreel-v01.webp
+?? public/works/after-effects-slideshow-v01.webp
+?? public/works/urban-vibe-v01.webp
+?? tests/e2e/media.spec.ts
+?? tests/fixtures/

@@ -1,9 +1,11 @@
 export type AspectRatio = '16:9' | '1:1' | '4:5' | '9:16'
+export type WorkDirection = 'Video Editing' | 'AI Video' | 'Motion Design'
 
 export type Work = {
   slug: string
   title: string
   category: string
+  direction?: WorkDirection
   role: string
   year: number
   ratio: AspectRatio
@@ -146,8 +148,9 @@ export const works: Work[] = [
   },
   {
     slug: 'pottery-workshop',
+    direction: 'AI Video',
     title: 'Pottery Workshop — Horizontal',
-    category: 'AI-Generated Film',
+    category: 'AI Video',
     role: 'Creative Direction & Editing',
     year: 2026,
     ratio: '16:9',
@@ -172,6 +175,50 @@ export const works: Work[] = [
     videoKey: 'videos/shoes-square-v01.mp4',
     featured: true,
     order: 11,
+    visible: false,
+  },
+
+  {
+    slug: 'after-effects-showreel',
+    direction: 'Motion Design',
+    title: 'After Effects Showreel — Horizontal',
+    category: 'Motion Design',
+    role: 'Adobe After Effects',
+    year: 2026,
+    ratio: '16:9',
+    poster: '/works/after-effects-showreel-v01.webp',
+    videoKey: 'videos/after-effects-showreel-v01.mp4',
+    featured: true,
+    order: 12,
+    visible: true,
+  },
+  {
+    slug: 'after-effects-slideshow',
+    direction: 'Motion Design',
+    title: 'After Effects Slideshow — Horizontal',
+    category: 'Slideshow Animation',
+    role: 'Adobe After Effects',
+    year: 2026,
+    ratio: '16:9',
+    poster: '/works/after-effects-slideshow-v01.webp',
+    videoKey: 'videos/after-effects-slideshow-v02.mp4',
+    featured: true,
+    order: 13,
+    visible: true,
+  },
+
+  {
+    slug: 'urban-vibe',
+    title: 'Urban Vibe — Vertical',
+    direction: 'AI Video',
+    category: 'AI Video',
+    role: 'Commercial Concept',
+    year: 2026,
+    ratio: '9:16',
+    poster: '/works/urban-vibe-v01.webp',
+    videoKey: 'videos/urban-vibe-v02.mp4',
+    featured: true,
+    order: 14,
     visible: true,
   },
 

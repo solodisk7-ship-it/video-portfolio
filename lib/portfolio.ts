@@ -1,7 +1,6 @@
 import { siteConfig } from '@/content/site-config'
 import type { Work } from '@/content/works'
 
-export const FEATURED_COUNT = 6
 export const LOAD_MORE_COUNT = 12
 
 type VideoSourceConfig = {

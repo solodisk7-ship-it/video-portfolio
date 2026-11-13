@@ -14,7 +14,12 @@ export function WorkCard({ work, priority = false, onOpen }: WorkCardProps) {
   return (
     <button
       type="button"
-      onClick={onOpen}
+      onClick={(event) => {
+        // WebKit does not always focus buttons on pointer clicks. Give the dialog
+        // an explicit opener to return focus to without changing the scroll position.
+        event.currentTarget.focus({ preventScroll: true })
+        onOpen()
+      }}
       className="group flex w-full cursor-pointer flex-col text-left focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-ring"
       aria-label={`Open ${work.title} — ${work.category}`}
     >

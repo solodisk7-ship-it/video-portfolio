@@ -1,25 +1,93 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowDown } from 'lucide-react'
-import { works } from '@/content/works'
+import { works, type WorkDirection } from '@/content/works'
 import { getInitialWorks, LOAD_MORE_COUNT } from '@/lib/portfolio'
 import { WorkCard } from '@/components/work-card'
 import { WorkLightbox } from '@/components/work-lightbox'
 
+const filters = ['All', 'Video Editing', 'AI Video', 'Motion Design'] as const
+type WorkFilter = 'All' | WorkDirection
+
 export function WorksSection() {
+  const [filter, setFilter] = useState<WorkFilter>('All')
   const { visible, featured, remaining } = useMemo(
-    () => getInitialWorks(works),
-    [],
+    () => getInitialWorks(works.filter((work) =>
+      filter === 'All' || (work.direction ?? 'Video Editing') === filter)),
+    [filter],
   )
   const [revealedCount, setRevealedCount] = useState(0)
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const historyOwner = useRef<string | null>(null)
+  const closing = useRef(false)
+  const projectOpen = useRef(false)
+  const opener = useRef<HTMLElement | null>(null)
+  const catalogueScroll = useRef(0)
 
   const displayedWorks = [
     ...featured,
     ...remaining.slice(0, revealedCount),
   ]
   const hasMore = displayedWorks.length < visible.length
+
+  useEffect(() => {
+    historyOwner.current = crypto.randomUUID()
+    function onPopState(event: PopStateEvent) {
+      closing.current = false
+      const entry = event.state?.portfolioProject
+      if (entry?.owner === historyOwner.current) {
+        projectOpen.current = true
+        setFilter(entry.filter ?? 'All')
+        setRevealedCount(entry.revealedCount ?? 0)
+        setOpenIndex(entry.index)
+      } else {
+        const restoreCatalogue = projectOpen.current
+        projectOpen.current = false
+        setOpenIndex(null)
+        if (!restoreCatalogue) return
+        requestAnimationFrame(() => {
+          opener.current?.focus({ preventScroll: true })
+          window.scrollTo(0, catalogueScroll.current)
+        })
+      }
+    }
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
+  }, [])
+
+  function openProject(index: number) {
+    if (closing.current) return
+    opener.current = document.activeElement as HTMLElement | null
+    catalogueScroll.current = window.scrollY
+    projectOpen.current = true
+    window.history.pushState({
+      ...window.history.state,
+      portfolioProject: { owner: historyOwner.current, index, filter, revealedCount },
+    }, '')
+    setOpenIndex(index)
+  }
+
+  function closeProject() {
+    if (closing.current) return
+    const entry = window.history.state?.portfolioProject
+    if (entry?.owner === historyOwner.current) {
+      closing.current = true
+      setOpenIndex(null)
+      window.history.back()
+    } else {
+      setOpenIndex(null)
+    }
+  }
+
+  function navigateProject(index: number) {
+    if (closing.current) return
+    window.history.replaceState({
+      ...window.history.state,
+      portfolioProject: { owner: historyOwner.current, index, filter, revealedCount },
+    }, '')
+    setOpenIndex(index)
+  }
 
   return (
     <section
@@ -30,13 +98,21 @@ export function WorksSection() {
         <h2 className="font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground">
           Selected Work
         </h2>
-        <p
-          className="font-mono text-xs tracking-[0.12em] text-muted-foreground"
-          aria-live="polite"
-        >
-          {String(displayedWorks.length).padStart(2, '0')} /{' '}
-          {String(visible.length).padStart(2, '0')}
-        </p>
+      </div>
+
+      <div role="group" aria-label="Filter works by direction" className="mt-6 flex flex-wrap gap-x-6 gap-y-2 md:gap-x-8">
+        {filters.map((item) => (
+          <button
+            key={item}
+            type="button"
+            aria-pressed={filter === item}
+            aria-controls="work-grid"
+            onClick={() => { setFilter(item); setRevealedCount(0) }}
+            className={`min-h-11 cursor-pointer border-b px-1 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring md:text-base ${filter === item ? 'border-foreground text-foreground' : 'border-transparent text-muted-foreground hover:text-foreground'}`}
+          >
+            {item}
+          </button>
+        ))}
       </div>
 
       <div
@@ -48,7 +124,7 @@ export function WorksSection() {
             key={work.slug}
             work={work}
             priority={index < 2}
-            onOpen={() => setOpenIndex(index)}
+            onOpen={() => openProject(index)}
           />
         ))}
       </div>
@@ -73,8 +149,8 @@ export function WorksSection() {
         <WorkLightbox
           works={displayedWorks}
           index={openIndex}
-          onClose={() => setOpenIndex(null)}
-          onNavigate={setOpenIndex}
+          onClose={closeProject}
+          onNavigate={navigateProject}
         />
       )}
     </section>

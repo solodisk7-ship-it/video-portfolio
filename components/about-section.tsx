@@ -1,6 +1,6 @@
 const services = [
   'Video Editing',
-  'Motion Design & Titles',
+  'Motion Design',
   'Vertical & Social Cutdowns',
 ]
 

@@ -164,11 +164,7 @@ export function WorkLightbox({ works, index, onClose, onNavigate }: WorkLightbox
       className="fixed inset-0 z-50 overflow-y-auto bg-background"
     >
       <div className="mx-auto flex min-h-full max-w-6xl flex-col px-6 py-4 md:px-10 md:py-6">
-        <div className="flex items-center justify-between">
-          <p className="font-mono text-xs tracking-[0.12em] text-muted-foreground">
-            {String(index + 1).padStart(2, '0')} /{' '}
-            {String(works.length).padStart(2, '0')}
-          </p>
+        <div className="flex items-center justify-end">
           <button
             ref={closeRef}
             type="button"

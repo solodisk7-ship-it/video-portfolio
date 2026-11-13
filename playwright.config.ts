@@ -1,11 +1,8 @@
 import { defineConfig, devices } from '@playwright/test'
 
-const includeCrossBrowser = Boolean(
-  process.env.CI || process.env.PLAYWRIGHT_CROSS_BROWSER,
-)
-
 export default defineConfig({
   testDir: './tests/e2e',
+  testMatch: '**/portfolio.spec.ts',
   globalTeardown: './tests/e2e/global-teardown.ts',
   fullyParallel: true,
   workers: 2,
@@ -24,12 +21,8 @@ export default defineConfig({
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    ...(includeCrossBrowser
-      ? [
-          { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
-          { name: 'webkit', use: { ...devices['Desktop Safari'] } },
-        ]
-      : []),
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
     { name: 'mobile-chrome', use: { ...devices['Pixel 7'] } },
   ],
 })
